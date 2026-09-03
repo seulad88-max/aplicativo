@@ -4,27 +4,15 @@
     "slug": "fluxoprime-app",
     "version": "1.0.0",
     "orientation": "default",
-    "icon": "./assets/images/icon.png",
     "scheme": "fluxoprime-app",
     "userInterfaceStyle": "dark",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/images/icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#24152F"
-    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.fluxoprime.app"
     },
     "android": {
       "package": "com.fluxoprime.app"
-    },
-    "windows": {
-      "icon": "./assets/images/icon.png"
-    },
-    "web": {
-      "favicon": "./assets/images/icon.png"
     },
     "plugins": [
       [
@@ -39,6 +27,11 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ae3715be-9843-4329-9598-be97d68673ad"
+      }
     }
   }
 }
