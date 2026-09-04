@@ -1,89 +1,29 @@
-# FluxoPrime App
+# Welcome to your Lovable project
 
-Aplicativo multiplataforma do FluxoPrime, com a experiência visual do site
-original e conexão com a API Xtream sem depender do site publicado.
+This project was built with [Lovable](https://lovable.dev).
 
-## Plataformas
+## Build with Lovable
 
-- Android: Expo/React Native
-- iOS: Expo/React Native
-- Computador: exportação web e shell opcional para Windows com Electron
+Open your project in the [Lovable editor](https://lovable.dev) and keep building.
 
-## Credenciais
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
+- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
 
-As credenciais do Xtream ficam somente no servidor/API como Secrets. Nunca
-coloque usuário ou senha dentro do aplicativo, pois o conteúdo de um APK,
-IPA ou EXE pode ser extraído.
+## Development
 
-Existem duas APIs no projeto:
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-- **FluxoPrime API**: servidor Express deste projeto. O app chama esta API
-  usando `EXPO_PUBLIC_API_URL`.
-- **Xtream Player API**: API externa do painel, chamada somente pelo servidor
-  através de `XTREAM_HOST`.
-
-Para rodar o servidor localmente, configure:
-
-```text
-XTREAM_HOST=https://seu-servidor-xtream
-XTREAM_USERNAME=seu-usuario
-XTREAM_PASSWORD=sua-senha
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
+npm run dev
 ```
 
-No app, configure separadamente:
+## Built with
 
-```text
-EXPO_PUBLIC_API_URL=http://IP_DO_COMPUTADOR:8080
-```
-
-Em produção, substitua pelo endereço público do servidor FluxoPrime. Não use
-`XTREAM_HOST` como `EXPO_PUBLIC_API_URL`.
-
-## Desenvolvimento
-
-```bash
-pnpm install
-pnpm --filter @workspace/api-server run dev
-pnpm --filter @workspace/fluxoprime-app run dev
-```
-
-No Replit, o endereço da API já é resolvido pelo domínio do projeto. Em um
-computador local, mantenha a API acessível pela máquina que executa o app.
-
-## Compilar Android
-
-Com Android Studio, SDK Android e Java configurados:
-
-```bash
-cd artifacts/fluxoprime-app
-npx expo run:android
-```
-
-## Compilar iOS
-
-A compilação nativa de iOS exige macOS e Xcode:
-
-```bash
-cd artifacts/fluxoprime-app
-npx expo run:ios
-```
-
-## Compilar para computador
-
-Para gerar a versão web:
-
-```bash
-cd artifacts/fluxoprime-app
-npx expo export --platform web
-```
-
-Para abrir como aplicativo Windows usando o shell opcional:
-
-```bash
-cd desktop
-npm install
-npm start
-```
-
-O shell carrega os arquivos exportados da pasta `dist`. O serviço Xtream
-continua precisando de internet para buscar catálogo e streams.
+- TanStack Start
+- TypeScript
+- React
+- Tailwind CSS

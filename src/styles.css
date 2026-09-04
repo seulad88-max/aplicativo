@@ -1,0 +1,307 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.9rem;
+  --background: oklch(0.21 0.075 299);
+  --foreground: oklch(0.97 0.012 300);
+  --surface: oklch(0.26 0.082 300);
+  --surface-2: oklch(0.31 0.09 301);
+  --card: oklch(0.26 0.082 300);
+  --card-foreground: oklch(0.97 0.012 300);
+  --popover: oklch(0.24 0.08 300);
+  --popover-foreground: oklch(0.97 0.012 300);
+  --primary: oklch(0.65 0.225 300);
+  --primary-foreground: oklch(0.99 0.005 300);
+  --primary-glow: oklch(0.78 0.17 308);
+  --secondary: oklch(0.32 0.09 301);
+  --secondary-foreground: oklch(0.97 0.012 300);
+  --muted: oklch(0.3 0.075 300);
+  --muted-foreground: oklch(0.77 0.045 302);
+  --accent: oklch(0.72 0.19 328);
+  --accent-foreground: oklch(0.15 0.05 300);
+  --destructive: oklch(0.62 0.23 18);
+  --destructive-foreground: oklch(0.99 0.005 300);
+  --border: oklch(0.38 0.09 302 / 60%);
+  --input: oklch(0.36 0.085 302);
+  --ring: oklch(0.7 0.2 302);
+  --chart-1: oklch(0.65 0.225 300);
+  --chart-2: oklch(0.72 0.19 328);
+  --chart-3: oklch(0.78 0.17 308);
+  --chart-4: oklch(0.6 0.16 265);
+  --chart-5: oklch(0.8 0.14 90);
+  --sidebar: oklch(0.24 0.08 300);
+  --sidebar-foreground: oklch(0.97 0.012 300);
+  --sidebar-primary: oklch(0.65 0.225 300);
+  --sidebar-primary-foreground: oklch(0.99 0.005 300);
+  --sidebar-accent: oklch(0.32 0.09 301);
+  --sidebar-accent-foreground: oklch(0.97 0.012 300);
+  --sidebar-border: oklch(0.38 0.09 302 / 60%);
+  --sidebar-ring: oklch(0.7 0.2 302);
+
+  /* Áreas seguras do aparelho (notch, barra de status, barra inferior) */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  /* Altura real da barra de navegação flutuante (menu inferior) */
+  --nav-h: 76px;
+}
+
+.dark {
+  --background: oklch(0.21 0.075 299);
+  --foreground: oklch(0.97 0.012 300);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* `clip` esconde o transbordo lateral SEM transformar o elemento num
+       container de rolagem — `hidden` aqui + no body travava a rolagem
+       vertical no Android/iOS. */
+    overflow-x: clip;
+    overflow-y: auto;
+    /* Rolagem vertical suave e contínua no toque */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+
+  /* Camada de brilho roxo fixa (substitui background-attachment: fixed,
+     que causa "salto/zoom" ao rolar no iOS) */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(60rem 40rem at 15% -10%, oklch(0.65 0.225 300 / 28%), transparent 70%),
+      radial-gradient(50rem 35rem at 90% 0%, oklch(0.72 0.19 328 / 20%), transparent 70%);
+  }
+
+  a,
+  button,
+  [role="button"],
+  select,
+  summary {
+    touch-action: manipulation;
+  }
+
+  /* Previne zoom automático no iOS ao focar em inputs (font-size mínimo 16px) */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility safe-top {
+  padding-top: var(--safe-top);
+}
+
+@utility safe-bottom {
+  padding-bottom: var(--safe-bottom);
+}
+
+@utility safe-x {
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+/* Espaço inferior para o conteúdo nunca ficar atrás do menu flutuante */
+@utility nav-space {
+  padding-bottom: calc(var(--nav-h) + var(--safe-bottom) + 1rem);
+}
+
+/* Reels: cada item ocupa exatamente a altura do scroller, sem "pulo" */
+@utility snap-item {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+
+@utility hero-title {
+  font-size: clamp(1.65rem, 7.2vw, 3.75rem);
+  line-height: 1.08;
+}
+
+@utility glass-panel {
+  background: color-mix(in oklab, var(--surface) 82%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--color-border);
+}
+
+@utility glow-primary {
+  box-shadow: 0 18px 60px -18px color-mix(in oklab, var(--primary) 70%, transparent);
+}
+
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+/* ---- Player em tela cheia ---- */
+:root {
+  --player-scrim: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0.72) 0%,
+    rgb(0 0 0 / 0.18) 28%,
+    rgb(0 0 0 / 0.18) 62%,
+    rgb(0 0 0 / 0.82) 100%
+  );
+  --player-scrim-strong: rgb(0 0 0 / 0.6);
+  --player-panel: color-mix(in oklab, var(--surface) 88%, black);
+  --player-line: color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
+.player-brightness {
+  writing-mode: vertical-lr;
+  direction: rtl;
+}
+
+.player-brightness::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: var(--foreground);
+}
+
+.player-brightness::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 0;
+  border-radius: 9999px;
+  background: var(--foreground);
+}
+
+/* ---- Transições de página ---- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@utility animate-fade-in {
+  animation: fade-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility page-transition {
+  /* `backwards` (e não `both`): o transform não fica grudado no elemento
+     depois da animação, evitando camadas fixas que atrapalham a rolagem. */
+  animation: page-enter 0.32s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition,
+  .animate-fade-in {
+    animation: none !important;
+  }
+}
